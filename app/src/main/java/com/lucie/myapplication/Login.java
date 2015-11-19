@@ -25,6 +25,7 @@ public class Login extends AppCompatActivity {
 
     private static final String TWITTER_KEY = "sp0HpuB2Wgf1LbuV4couzLgp6";
     private static final String TWITTER_SECRET = "F2jROJnKT6NeR2hXKgcWllclMyXP2QJUtYn9nWAbYbuMhytxeS";
+    TwitterLoginButton loginButton;
 
 
     @Override
@@ -38,7 +39,7 @@ public class Login extends AppCompatActivity {
 
 
 
-         TwitterLoginButton loginButton = (TwitterLoginButton) findViewById(R.id.login_button);
+        loginButton = (TwitterLoginButton) findViewById(R.id.login_button);
         loginButton.setCallback(new Callback<TwitterSession>() {
             @Override
             public void success(Result<TwitterSession> result) {
@@ -59,9 +60,11 @@ public class Login extends AppCompatActivity {
 
     }
 
-    /*@Override
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        loginButton.onActivityResult(requestCode, resultCode,data);
-    }*/
+        loginButton.onActivityResult(requestCode, resultCode, data);
+        Intent i = new Intent(Login.this, ItemsActivity.class);
+        startActivity(i);
+    }
 }

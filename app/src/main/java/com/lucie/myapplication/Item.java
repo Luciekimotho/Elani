@@ -7,6 +7,10 @@ public class Item {
     int id;
     String name, price, imgUrl;
 
+    public Item(){
+
+    }
+
     //constructor for the data
     public Item(int id, String name, String price, String imgUrl){
         this.id = id;
@@ -17,7 +21,7 @@ public class Item {
 
 
     //functions for returning the data
-    public int getId(){
+  /*  public int getId(){
         return  id;
     }
 
@@ -30,5 +34,5 @@ public class Item {
     }
     public String getImgUrl(){
         return imgUrl;
-    }
+    }*/
 }

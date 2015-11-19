@@ -16,43 +16,24 @@ import java.util.List;
 /**
  * Created by lucie on 11/16/15.
  */
-public class ItemAdapter extends  RecyclerView.Adapter<ItemAdapter.ItemHolder> {
+public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemHolder> {
     private Context context;
-    private List<Item> itemList;
+    private List<String> name;
+    List<String>price;
+    List<String>imageUrl;
 
-    public ItemAdapter(Context mContext, List<Item> mList){
+    public ItemAdapter(Context mContext, List<String> name, List<String> price, List<String> imageUrl) {
         this.context = mContext;
-        this.itemList = mList;
+        this.name = name;
+        this.price = price;
+        this.imageUrl = imageUrl;
     }
 
-    @Override
-    public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_items, null);
-        ItemHolder itemHolder = new ItemHolder(layoutView);
-        return itemHolder;
-    }
-
-    @Override
-    public void onBindViewHolder(ItemHolder holder, int position) {
-        /*Picasso.with(this.context)
-                .load("https://s-media-cache-ak0.pinimg.com/236x/03/a8/53/03a8535aca4c3447abb505530d30b1f9.jpg").resize(150, 150).centerCrop()
-                .into(holder.itemImg);*/
-        Picasso.with(this.context)
-                .load(itemList.get(position).getImgUrl()).resize(150, 150).centerCrop()
-                .into(holder.itemImg);
-        holder.itemName.setText(itemList.get(position).getName());
-        holder.itemPrice.setText(itemList.get(position).getPrice());
-    }
-
-    @Override
-    public int getItemCount() {
-        return itemList.size();
-    }
-
-    public static class ItemHolder extends RecyclerView.ViewHolder{
+    public static class ItemHolder extends RecyclerView.ViewHolder {
         CardView itemCard;
         ImageView itemImg;
         TextView itemName, itemPrice;
+
         public ItemHolder(View v) {
             super(v);
             itemCard = (CardView) v.findViewById(R.id.itemCardView);
@@ -61,5 +42,27 @@ public class ItemAdapter extends  RecyclerView.Adapter<ItemAdapter.ItemHolder> {
             itemPrice = (TextView) v.findViewById(R.id.itemPriceView);
         }
     }
+
+    @Override
+    public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.items_card, parent, false);
+        ItemHolder itemHolder = new ItemHolder(layoutView);
+        return itemHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(ItemHolder holder, int i) {
+        holder.itemName.setText(name.get(i));
+        holder.itemPrice.setText("Ksh." +price.get(i));
+        Picasso.with(this.context)
+                .load(imageUrl.get(i)).resize(150, 150).centerCrop()
+                .into(holder.itemImg);
+    }
+
+    @Override
+    public int getItemCount() {
+        return name.size();
+    }
+
 
 }
