@@ -1,13 +1,17 @@
 package com.lucie.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -29,7 +33,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemHolder> {
         this.imageUrl = imageUrl;
     }
 
-    public static class ItemHolder extends RecyclerView.ViewHolder {
+
+
+    public static class ItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         CardView itemCard;
         ImageView itemImg;
         TextView itemName, itemPrice;
@@ -40,9 +46,17 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemHolder> {
             itemImg = (ImageView) v.findViewById(R.id.itemImgView);
             itemName = (TextView) v.findViewById(R.id.itemNameView);
             itemPrice = (TextView) v.findViewById(R.id.itemPriceView);
+            v.setOnClickListener(this);
+        }
+
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+            Log.d("position", ""+position);
+            Toast.makeText(v.getContext(), "Clicked Position = " +position, Toast.LENGTH_SHORT).show();
         }
     }
-
     @Override
     public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.items_card, parent, false);

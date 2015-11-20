@@ -10,4 +10,8 @@
     <string name="title_activity_home">Home</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_toolbar_things">ToolbarThings</string>
+    <string name="vegetables">Vegetables</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="title_activity_items_details">ItemsDetails</string>
 </resources>

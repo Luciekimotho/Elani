@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -15,7 +14,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".ItemsActivity"
-            android:label="@string/app_name">
+            android:label="@string/vegetables"
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,21 +31,35 @@
             android:name=".Login"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" >
-
         </activity>
         <activity
             android:name=".Home"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_home"
             android:theme="@style/FullscreenTheme" >
-
         </activity>
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="af4241f6a55e72bc3dd5b031966f291335b69df3" />
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="af4241f6a55e72bc3dd5b031966f291335b69df3" />
+
+        <activity
+            android:name=".ToolbarThings"
+            android:label="@string/title_activity_toolbar_things"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".ItemsDetails"
+            android:label="@string/title_activity_items_details"
+            android:parentActivityName=".ItemsActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.lucie.myapplication.ItemsActivity" />
+        </activity>
     </application>
 
 </manifest>
