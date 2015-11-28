@@ -20,14 +20,12 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Parse.enableLocalDatastore(this);
+        //Parse.enableLocalDatastore(this);
         Parse.initialize(this, "4r6GuVjJO85qw30CpTtEAcxRKY2xN7ividCi4yQA", "E6a1zZSV37Gs9Mv56L5ylP9cnqVcXbkTWRyFuywX");
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(this, new Twitter(authConfig));
 
         // Enable Local Datastore.
-
-
     }
 
 
