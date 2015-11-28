@@ -2,33 +2,29 @@ package com.lucie.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.NumberPicker;
 import android.widget.Toast;
 
-public class ItemsDetails extends AppCompatActivity {
+public class Cartactivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.items_details);
+        setContentView(R.layout.cartactivity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        NumberPicker np = (NumberPicker) findViewById(R.id.numberPicker);
+        np.setMinValue(1);
+        np.setMaxValue(20);
+        np.setFocusable(true);
+        np.setFocusableInTouchMode(true);
+
+
     }
 
     @Override
@@ -47,7 +43,7 @@ public class ItemsDetails extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.cart) {
-            Toast.makeText(this, "View cart", Toast.LENGTH_SHORT)
+            Toast.makeText(this, "Your shopping cart is empty", Toast.LENGTH_SHORT)
                     .show();
             Intent i = new Intent(getApplicationContext(),Cartactivity.class);
             startActivity(i);

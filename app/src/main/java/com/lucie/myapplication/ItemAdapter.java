@@ -54,7 +54,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemHolder> {
         public void onClick(View v) {
             int position = getAdapterPosition();
             Log.d("position", ""+position);
-            Toast.makeText(v.getContext(), "Clicked Position = " +position, Toast.LENGTH_SHORT).show();
+            Context con = itemView.getContext();
+            if (position == 1){
+                Intent i = new Intent(con,ItemsDetails.class);
+                con.startActivity(i);
+
+            }
         }
     }
     @Override

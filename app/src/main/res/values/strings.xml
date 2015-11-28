@@ -14,4 +14,11 @@
     <string name="vegetables">Vegetables</string>
     <string name="add_to_cart">Add to cart</string>
     <string name="title_activity_items_details">ItemsDetails</string>
+    <string name="descr">Wonderfully sweet with firm and creamy flesh, bananas come prepackaged in their own yellow jackets and are available for harvest throughout the year.  The banana plant grows 10 to 26 feet and belongs to the Musaceae family of plants along with plantains.</string>
+    <string name="title_activity_cartactivity">Cartactivity</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="user_name">Username</string>
+    <string name="sign_up">Sign up</string>
 </resources>

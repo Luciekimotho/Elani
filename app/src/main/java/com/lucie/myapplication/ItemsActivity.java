@@ -101,9 +101,9 @@ public class ItemsActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.cart) {
-            Toast.makeText(this, "View cart", Toast.LENGTH_SHORT)
+            Toast.makeText(this, "Your shopping cart is empty", Toast.LENGTH_SHORT)
                     .show();
-            Intent i = new Intent(getApplicationContext(),Login.class);
+            Intent i = new Intent(getApplicationContext(),Cartactivity.class);
             startActivity(i);
             return true;
         }
