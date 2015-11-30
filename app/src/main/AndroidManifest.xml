@@ -21,19 +21,16 @@
             android:name=".SignUp"
             android:label="@string/title_activity_sign_up"
             android:theme="@style/AppTheme.NoActionBar" >
-
         </activity>
         <activity
             android:name=".Login"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".Home"
@@ -67,10 +64,12 @@
             android:name=".Cartactivity"
             android:label="@string/title_activity_cartactivity"
             android:parentActivityName=".ItemsDetails"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.lucie.myapplication.ItemsDetails" />
+        </activity>
+        <activity android:name=".PushNotif" >
         </activity>
     </application>
 
