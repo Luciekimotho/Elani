@@ -18,11 +18,11 @@ public class Cartactivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        NumberPicker np = (NumberPicker) findViewById(R.id.numberPicker);
+       /* NumberPicker np = (NumberPicker) findViewById(R.id20.numberPicker);
         np.setMinValue(1);
         np.setMaxValue(20);
         np.setFocusable(true);
-        np.setFocusableInTouchMode(true);
+        np.setFocusableInTouchMode(true);*/
 
 
     }

@@ -3,6 +3,7 @@ package com.lucie.myapplication;
 import android.app.Application;
 
 import com.parse.Parse;
+import com.parse.ParseInstallation;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 
@@ -22,6 +23,7 @@ public class MyApplication extends Application {
         super.onCreate();
         //Parse.enableLocalDatastore(this);
         Parse.initialize(this, "4r6GuVjJO85qw30CpTtEAcxRKY2xN7ividCi4yQA", "E6a1zZSV37Gs9Mv56L5ylP9cnqVcXbkTWRyFuywX");
+        ParseInstallation.getCurrentInstallation().saveInBackground();
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(this, new Twitter(authConfig));
 
