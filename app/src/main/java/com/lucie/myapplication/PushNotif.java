@@ -43,19 +43,7 @@ public class PushNotif extends AppCompatActivity implements View.OnClickListener
         ButterKnife.inject(this);
         login.setOnClickListener(this);
 
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("_User");
-        try {
-            obj = query.find();
-        }catch (ParseException e){
-            Log.e("Error", e.getMessage());
-            e.printStackTrace();
-        }
 
-        for (int i = 0; i < obj.size(); i++){
-            //Log.d("badge number", ""+obj.get(i).getString("BadgeNumber"));
-            numbers = obj.get(i).getString("BadgeNumber");
-            Log.d("Badge numbers", numbers);
-        }
 
 
     }
@@ -63,11 +51,15 @@ public class PushNotif extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
         badgeNumber = et_badge.getText().toString();
-        //Log.d("badge", "number:"+badgeNumber);
-        if (badgeNumber.equals(numbers)){
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("_User");
+        query.whereEqualTo("BadgeNumber",badgeNumber );
+        try {
+            obj = query.find();
             Intent i = new Intent(PushNotif.this,ItemsActivity.class);
             startActivity(i);
-        }else {
+        }catch (ParseException e){
+            Log.e("Error", e.getMessage());
+            e.printStackTrace();
             Toast.makeText(getBaseContext(),"Invalid badge number",Toast.LENGTH_SHORT);
         }
     }
