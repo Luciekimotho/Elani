@@ -42,10 +42,6 @@ public class PushNotif extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_push_notif);
         ButterKnife.inject(this);
         login.setOnClickListener(this);
-
-
-
-
     }
 
     @Override
