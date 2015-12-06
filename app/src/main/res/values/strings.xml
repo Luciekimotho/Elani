@@ -22,4 +22,6 @@
     <string name="user_name">Username</string>
     <string name="sign_up">Sign up</string>
     <string name="request_pin" >Request pin</string>
+    <string name="title_activity_categories">Categories</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

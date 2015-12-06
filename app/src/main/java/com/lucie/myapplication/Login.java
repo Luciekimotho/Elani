@@ -36,8 +36,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(this, new Twitter(authConfig));
+
         setContentView(R.layout.login);
 
         etemail = (EditText) findViewById(R.id.et_email);
@@ -52,10 +54,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
             public void success(Result<TwitterSession> result) {
                 TwitterSession session = result.data;
                 String msg = "@" + session.getUserName() + "logged in (#" + session.getUserId() + ")";
-                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
 
             }
-
             @Override
             public void failure(TwitterException e) {
                 Log.d("TwitterKit", "Login with Twitter failure");
